@@ -1,41 +1,53 @@
-#lấy số lượng môn
-try:
-    num_subject=int(input('Nhập số lượng môn học: '))
-    try:
-    #tạo list điểm và tín
+#Tên
+name = str(input('Tên của bạn là: '))
+#Nhập y/n để bắt đầu/kết thúc chương trình
+while True:
+    
+    bat_dau = str(input('Bắt đầu chương trình? (y/n): '))
+    if bat_dau != 'y' and bat_dau != 'n':
+        print('Vui lòng nhập y hoặc n ')
+        break
+    elif bat_dau == 'n':
+        print('Đã kết thúc chương trình! ')
+        break
+    else:
+        print('')
+    #Vòng lặp khi nhập sai giá trị
+    while True:
         try:
-            all_point=[]
-            all_num_credit=[]
-            # Nhập dữ liệu
-            for i in range(num_subject):
-                try:
-                    point=float(input(f'Nhập điểm môn số {i+1}: '))
-                except:
-                    print('Vui lòng nhập số thực khác 0')
-                num_credit=int(input(f'Nhập số tín của môn thứ {i+1}: '))
-                # Thêm dữ liệu từ bàn phím vào list
-                all_point.append(point)
-                all_num_credit.append(num_credit)
-            #Tính tổng điểm của các môn: sum(điểm mỗi môn*số tín mỗi môn)
-            #tạo list chứa tổng điểm total_point
-            total_points=[]
-            for i in range (num_subject):
-                    #tạo biến tt_points để gán giá trị (=Điểm của môn * số tín của môn)
-                tt_points=all_point[i]*all_num_credit[i]
-                    #nhập giá trị từ tt_point vào list total_point
-                total_points.append(tt_points)
-            #tính GPA:
-            def gpa_calc():
-                gpa=sum(total_points)/sum(all_num_credit)
-                return gpa
-            #số tín phải lớn hơn 0
-            if num_credit > 0:
-                print('Điểm GPA của bạn là: ',gpa_calc())
-            else:
-                print('Số lượng tín phải lớn hơn 0')
-        except:
-            print('Vui lòng nhập số nguyên lớn hơn 0')
+            #list điểm và tín
+            list_diem=[]
+            list_tin=[]
+            so_luong_mon = int(input('Nhập số lượng môn: '))
+            for i in range (so_luong_mon):
+                diem_mon = float(input(f'Nhập điểm của môn thứ {i+1}: '))
+                so_tin = int(input(f'Nhập số tín của môn {i+1}: '))
+                if so_tin == 0:
+                    break
+                list_diem.append(diem_mon)
+                list_tin.append(so_tin)
+            if so_luong_mon > 0 and so_tin > 0 :
+                break
+            elif so_luong_mon <= 0 :
+                print('Số lượng môn phải lớn hơn 0!')
+            elif so_tin <= 0 :
+                print('Số tín phải lớn hơn 0!')
+        #ValueError sẽ phải nhập lại giá trị.
+        except ValueError:
+            print('Số lượng môn và số tín phải là số tự nhiên!')
+            print()
+            break#không thực hiện nhập lại giá trị mà sẽ hỏi lại có muốn bắt đầu ctrinh
+    #try except tránh lỗi khi break ở trên
+    try:
+        #tính tổng điểm các môn
+        tong_diem_cac_mon = 0
+        for i in range(so_luong_mon):
+            tong_diem_cac_mon += list_diem[i]*list_tin[i]
+        #hàm tính toán
+        def tinh_gpa():
+            gpa=tong_diem_cac_mon/sum(list_tin)
+            return gpa
+        print(f'Điểm gpa của bạn là {tinh_gpa()}')
+        break#có kq rồi sẽ không chạy lại chương trình
     except:
-        print('Vui lòng nhập số nguyên lớn hơn 0')
-except ValueError:
-    print('Vui lòng nhập số nguyên lớn hơn 0')
+        pass#không làm gì
