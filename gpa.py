@@ -48,11 +48,15 @@ while True:
             gpa=tong_diem_cac_mon/sum(list_tin)
             print(f'Gpa của bạn là {gpa}')
             return gpa
-        GPA=tinh_gpa()
+        GPA=float((tinh_gpa()))
         #lưu kq vào list result
-        result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{GPA}']
+        result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{format(GPA,".3f")}']
         #truyền vào text
-        with open("C:/Users/ploic/Máy tính/ASM Python/result.txt",'w') as f:
+        import os
+        #tạo thư mục
+        os.makedirs("C:/Result", exist_ok=True)
+        #tạo và ghi file
+        with open(os.path.join("C:/Result", "result.txt"), mode='w') as f:
             f.write(f'{result}')
         break#có kq rồi sẽ không chạy lại chương trình
     except:
