@@ -46,8 +46,10 @@ while True:
         #hàm tính toán
         def tinh_gpa():
             gpa=tong_diem_cac_mon/sum(list_tin)
-            return print(f'Điểm gpa của bạn là {gpa}')
-        result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{tinh_gpa()}']
+            return print(f'Gpa của bạn là {gpa}')
+        GPA=tinh_gpa()
+        #lưu kq vào list result
+        result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{GPA}']
         #truyền vào text
         with open("C:/Users/ploic/Máy tính/ASM Python/result.txt",'w') as f:
             f.write(f'{result}')
