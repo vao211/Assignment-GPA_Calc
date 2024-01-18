@@ -46,7 +46,8 @@ while True:
         #hàm tính toán
         def tinh_gpa():
             gpa=tong_diem_cac_mon/sum(list_tin)
-            return print(f'Gpa của bạn là {gpa}')
+            print(f'Gpa của bạn là {gpa}')
+            return gpa
         GPA=tinh_gpa()
         #lưu kq vào list result
         result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{GPA}']
