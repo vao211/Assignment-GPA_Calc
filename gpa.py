@@ -46,8 +46,12 @@ while True:
         #hàm tính toán
         def tinh_gpa():
             gpa=tong_diem_cac_mon/sum(list_tin)
-            return gpa
-        print(f'Điểm gpa của bạn là {tinh_gpa()}')
+            return print(f'Điểm gpa của bạn là {gpa}'),gpa
+        tinh_gpa()
+        result=[f'name: {name}',f'Point {tuple(list_diem)}',f'Credits {tuple(list_tin)}',f'Gpa:{tinh_gpa()}']
+        #truyền vào text
+        with open("C:/Users/ploic/Máy tính/ASM Python/result.txt",'w') as f:
+            f.write(f'{result}')
         break#có kq rồi sẽ không chạy lại chương trình
     except:
         pass#không làm gì
