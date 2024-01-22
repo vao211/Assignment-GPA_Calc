@@ -27,11 +27,13 @@ while True:
                 break
             elif num_subject <= 0 :
                 print('The number of subjects must be greater than 0!')
+                break
             elif num_credit <= 0 :
                 print('The number of credits must be greater than 0!')
+                break
         #ValueError sẽ phải nhập lại giá trị.
         except ValueError:
-            print('The number of subjects and credits must be natural numbers!')
+            print('The number of subjects and credits must be natural numbers and your score must be a number!')
             print()
             break#không thực hiện nhập lại giá trị mà sẽ hỏi lại có muốn bắt đầu ctrinh
     #try except tránh lỗi khi break ở trên
