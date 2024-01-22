@@ -21,8 +21,6 @@ while True:
             for i in range (num_subject):
                 point = float(input(f'Enter the score of the {i+1} subject: '))
                 num_credit = int(input(f'Enter the number of credits of the {i+1} subject: '))
-                if num_credit == 0:
-                    break
                 list_point.append(point)
                 list_credit.append(num_credit)
             if num_subject > 0 and num_credit > 0 :
