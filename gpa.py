@@ -49,7 +49,7 @@ while True:
             return gpa
         GPA=float((calc_gpa()))
         #lưu kq vào list result
-        result=[f'name: {name}',f'Point {tuple(list_point)}',f'Credits {tuple(list_credit)}',f'Gpa:{format(GPA,".3f")}']
+        result=[f'name: {name}',f'Point {(list_point)}',f'Credits {(list_credit)}',f'Gpa:{format(GPA,".3f")}']
         #truyền vào text
         import os
         #tạo thư mục
