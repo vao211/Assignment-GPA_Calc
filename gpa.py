@@ -59,6 +59,6 @@ while True:
             f.write(f'{result}')
             print('Your result was saved to C:/Result_GPA/result.txt!')
             print('-----------------------------------')
-        break#có kq rồi sẽ không chạy lại chương trình
+            break#có kq rồi sẽ không chạy lại chương trình
     except:
         pass#không làm gì
